@@ -1,7 +1,7 @@
 # GO REST API GIN
 
 Membuat REST API dan Dokumentasi API dengan Gin, Gorm dan Swaggo.
-Development by: 
+- **Development by:** 
 - Findryankp
 
 ## Init Project
