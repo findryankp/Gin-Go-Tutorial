@@ -15,7 +15,8 @@ Membuat REST API dan Dokumentasi API dengan Gin, Gorm dan Swaggo.
 - go get -u github.com/swaggo/files
 - go get -u github.com/swaggo/gin-swagger
 
-## Step By step
+## Step By step (MAC OS)
+- export PATH=$(go env GOPATH)/bin:$PATH
 - swag init
 
 ## License

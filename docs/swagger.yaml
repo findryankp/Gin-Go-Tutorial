@@ -1,0 +1,134 @@
+definitions:
+  controllers.movieInput:
+    properties:
+      age_rating_category_id:
+        type: integer
+      title:
+        type: string
+      year:
+        type: integer
+    type: object
+  models.Movie:
+    properties:
+      ageRatingCategoryID:
+        type: integer
+      created_at:
+        type: string
+      id:
+        type: integer
+      title:
+        type: string
+      updated_at:
+        type: string
+      year:
+        type: integer
+    type: object
+info:
+  contact:
+    email: support@swagger.io
+    name: API Support
+    url: http://www.swagger.io/support
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: http://swagger.io/terms/
+paths:
+  /movie/{id}:
+    delete:
+      description: Delete a movie by id.
+      parameters:
+      - description: movie id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            additionalProperties:
+              type: boolean
+            type: object
+      summary: Delete one movie.
+      tags:
+      - Movie
+  /movies:
+    get:
+      description: Get a list of Movies.
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            items:
+              $ref: '#/definitions/models.Movie'
+            type: array
+      summary: Get all movies.
+      tags:
+      - Movie
+    post:
+      description: Creating a new Movie.
+      parameters:
+      - description: the body to create a new movie
+        in: body
+        name: Body
+        required: true
+        schema:
+          $ref: '#/definitions/controllers.movieInput'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Movie'
+      summary: Create New Movie.
+      tags:
+      - Movie
+  /movies/{id}:
+    get:
+      description: Get a Movie by id.
+      parameters:
+      - description: movie id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Movie'
+      summary: Get Movie.
+      tags:
+      - Movie
+    patch:
+      description: Update movie by id.
+      parameters:
+      - description: movie id
+        in: path
+        name: id
+        required: true
+        type: string
+      - description: the body to update an movie
+        in: body
+        name: Body
+        required: true
+        schema:
+          $ref: '#/definitions/controllers.movieInput'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Movie'
+      summary: Update Movie.
+      tags:
+      - Movie
+swagger: "2.0"
